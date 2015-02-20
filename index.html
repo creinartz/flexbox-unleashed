@@ -41,7 +41,7 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section data-background="assets/6141674518_68f6ef9371_o.jpg" data-state="intro-slide">
+				<section data-background="https://farm7.staticflickr.com/6181/6141674518_bab5996e55_b.jpg" data-state="intro-slide">
 					<div>
 						<h1>CSS3 flexbox</h1>
 						<h3>flexbox unleashed</h3>
@@ -52,10 +52,327 @@
 				</section>
 
 				<section>
+					<h2>Layouting in CSS</h2>
+					<p>
+						<img src="https://i.imgur.com/Q3cUg29.gif">
+					</p>
+				</section>
+
+				<section>
+					<h2>Layout modes in css</h2>
+					<ul>
+						<li>block & float</li>
+						<li>inline layout</li>
+						<li>inline-block</li>
+						<li>table layout</li>
+						<li>positioned layout</li>
+						<li>flexible box layout *</li>
+						<li>grid layout *</li>
+					</ul>
+					<p><small>*) in development</small></p>
+
+				</section>
+
+				<section>
+					<h2>Layouting in CSS</h2>
+					<p>
+						<img src="https://pbs.twimg.com/media/B2mW8NiCQAA6IIP.jpg">
+					</p>
+				</section>
+
+				<section>
+					<h2>Layouting in CSS</h2>
+					<p>
+						Next person I hear say "oh they're *only* a front-end person," I'm gonna make them vertically center text in a variable height element.
+					</p>
+					<p>
+						<small><a href="https://twitter.com/brianloveswords/status/538819180980473856">@brianlovesword</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>block & float</h2>
+					<p>
+						Most common layout mode today. Used in many frameworks and grid layouts, e.g. bootstrap
+					</p>
+
+				</section>
+
+				<section>
+					<h2>it is a hack - clearfix</h2>
+					<pre><code data-trim contenteditable>
+.cf:before,
+.cf:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.cf:after {
+  clear: both;
+}
+
+/**
+* For IE 6/7 only
+* Include this rule to trigger hasLayout and contain floats.
+*/
+.cf {
+  *zoom: 1;
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>inline-block</h2>
+
+					<p>
+						the 4px "bug"
+					</p>
+					<pre><code data-trim contenteditable>
+<nav>
+  <a href="#">One</a>
+  <a href="#">Two</a>
+  <a href="#">Three</a>
+</nav>
+					</code></pre>
+					<style>
+						nav a {
+							display: inline-block;
+							background: #ccc;
+						}
+					</style>
+					<nav>
+						<a href="#">One</a>
+						<a href="#">Two</a>
+						<a href="#">Three</a>
+					</nav>
+
+				</section>
+
+				<section>
+					<h2>but wait...<br>there are hacks for that</h2>
+
+					<ul>
+						<li>remove spaces between elements</li>
+						<li>negative margins</li>
+						<li>skip closing tag</li>
+						<li>set font-size to zero</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>table layout</h2>
+
+					<p>
+						table layout for the rescue?!
+					</p>
+					<p>
+						even support IE8!
+					</p>
+					<p>
+						we need to change stack order of elements in RWD
+					</p>
+				</section>
+
+
+				<section>
+					<h2>table layout - responsive</h2>
+					<pre><code data-trim contenteditable>
+<div class="boxes">
+  <div class="one box">Box One</div>
+  <div class="two box">Box Two</div>
+  <div class="three box">Box Three</div>
+  <div class="four box">Box Four</div>
+</div>
+					</code></pre>
+					<pre><code data-trim contenteditable>
+.boxes {
+  display: table;
+  margin: 0 auto;
+}
+.box {
+  display: table-cell;
+  width: 25%;
+  height: 15em;
+  text-align: center;
+  line-height: 15em;
+  color: #fff;
+}
+.one { background: #333; }
+.two {
+  background:#fff;
+  color:#333;
+}
+.three { background:#aaa; }
+.four { background:#dc002e; }
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>table layout - responsive</h2>
+					<pre><code data-trim contenteditable>
+/* 768px */
+@media only screen and (max-width:48em) {
+  .boxes {
+    display:table;
+    width:100%;
+  }
+  .box {
+    display:block;
+    width:100%;
+  }
+  .three { display:table-caption; }
+  .four { display:table-header-group; }
+  .one { display:table-footer-group; }
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>table layout - responsive</h2>
+					<style>
+						.boxes {
+							display: table;
+							margin: 0 auto;
+							width:100%;
+						}
+						.box {
+							display: table-cell;
+							width: 25%;
+							text-align: center;
+							color: #fff;
+						}
+						.one { background: #333; }
+						.two {
+							background:#fff;
+							color:#333;
+						}
+						.three { background:#aaa; }
+						.four { background:#dc002e; }
+						@media only screen and (max-width:48em) {
+							.boxes {
+								display:table;
+								width:100%;
+							}
+							.box {
+								display:block;
+								width:100%;
+							}
+							.three { display:table-caption; }
+							.four { display:table-header-group; }
+							.one { display:table-footer-group; }
+						}
+					</style>
+					<div class="boxes">
+						<div class="one box">Box One</div>
+						<div class="two box">Box Two</div>
+						<div class="three box">Box Three</div>
+						<div class="four box">Box Four</div>
+					</div>
+
+				</section>
+
+				<section>
+					<h2>WTF</h2>
+					<img src="http://cdn.alltheragefaces.com/img/faces/large/surprised-reaction-guy-l.png" width="600">
+				</section>
+
+				<section>
+					<h2>positioned layout</h2>
+					<p>
+						<img src="http://cdn.meme.am/instances/500x/59141167.jpg">
+					</p>
+				</section>
+
+				<section>
+					<h2>positioned layout</h2>
+					<p>
+						designed for positioning elements without much interaction with other elements!
+					</p>
+					<p>
+						elements are taken off from flow
+					</p>
+				</section>
+
+				<section>
+					<h2>GSS - Grid stylesheets</h2>
+					<p>
+						wanna really rely on javascript for layouting?
+					</p>
+					<p>
+						shouldn't the browser do the layout?!
+					</p>
+				</section>
+
+				<section>
+					<h2>A new hope</h2>
+					<p>
+						CSS3 flexbox
+					</p>
+					<p>
+						CSS grid
+					</p>
+				</section>
+
+				<section>
+					<h2>CSS Grid</h2>
+					<p>
+						The grid property in CSS is the foundation of Grid Layout. It aims at fixing issues with older layout techniques like float and inline-block, which both have issues and weren't really designed for page layout.
+					</p>
+				</section>
+
+				<section data-background-iframe="http://caniuse.com/#feat=css-grid">
+					<!-- -->
+				</section>
+				<section >
+					<h2>CSS3 flexbox</h2>
+					<p>
+						The Flexbox Layout (Flexible Box) module (currently a W3C Last Call Working Draft) aims at providing a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown and/or dynamic (thus the word "flex").
+					</p>
+				</section>
+
+				<section >
+					<h2>CSS3 flexbox</h2>
+					<p>
+						Note: Flexbox layout is most appropriate to the components of an application, and small-scale layouts, while the Grid layout is intended for larger scale layouts.
+					</p>
+				</section>
+
+				<section data-background-iframe="http://caniuse.com/#search=flexbox">
+					<!-- -->
+				</section>
+
+				<section >
+					<h2>CSS3 flexbox</h2>
+					<p>
+						see it in production...
+					</p>
+				</section>
+
+				<section data-background-iframe="http://www.theguardian.com/uk">
+					<!-- -->
+				</section>
+
+				<section>
+					<h2>the flexbox concept</h2>
+					<p>
+						to be continued
+					</p>
+				</section>
+
+
+				<section>
 					<h2>Photo-Sources</h2>
 					<p>
 						Slide 1:<br>
-						<small class="img-copy"><a href="https://www.flickr.com/photos/raeallen/6141674518" target="_blank">https://www.flickr.com/photos/raeallen/6141674518</a></small>
+						<small class="img-copy"><a href="https://www.flickr.com/photos/raeallen/6141674518" target="_blank">https://www.flickr.com/photos/raeallen/6141674518</a></small><br>
+						Slide 2:<br>
+						<small class="img-copy"><a href="https://i.imgur.com/Q3cUg29.gif" target="_blank">https://i.imgur.com/Q3cUg29.gif</a></small><br>
+						Slide 4:<br>
+						<small class="img-copy"><a href="https://pbs.twimg.com/media/B2mW8NiCQAA6IIP.jpg" target="_blank">https://pbs.twimg.com/media/B2mW8NiCQAA6IIP.jpg</a></small><br>
+						Slide 14:<br>
+						<small class="img-copy"><a href="http://cdn.alltheragefaces.com/img/faces/large/surprised-reaction-guy-l.png" target="_blank">http://cdn.alltheragefaces.com/img/faces/large/surprised-reaction-guy-l.png</a></small>
+						<br>Slide 15:<br>
+						<small class="img-copy"><a href="http://cdn.meme.am/instances/500x/59141167.jpg" target="_blank">http://cdn.meme.am/instances/500x/59141167.jpg</a></small>
 					</p>
 				</section>
 
