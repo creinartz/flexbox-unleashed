@@ -326,7 +326,7 @@ nav a {
 					</p>
 				</section>
 
-				<section data-background-iframe="http://caniuse.com/#feat=css-grid">
+				<section data-background-iframe="http://caniuse.com/#search=css%20grid">
 					<!-- -->
 				</section>
 				<section >
@@ -386,6 +386,13 @@ nav a {
 				</section>
 
 				<section>
+					<h2>container & items</h2>
+					<p>
+						<img src="img/flex_container.png" alt="" style="background: #dfdfdf;">
+					</p>
+				</section>
+
+				<section>
 					<h2>container: flex-direction</h2>
 <pre><code data-trim contenteditable>
 .container {
@@ -398,6 +405,13 @@ nav a {
 				</section>
 
 				<section>
+					<h2>flex-direction</h2>
+					<p>
+						<img src="img/flex_direction.png" alt="" style="background: #dfdfdf;">
+					</p>
+				</section>
+
+				<section>
 					<h2>container: flex-wrap</h2>
 <pre><code data-trim contenteditable>
 .container{
@@ -406,6 +420,13 @@ nav a {
 </code></pre>
 					<p>
 						By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap as needed with this property
+					</p>
+				</section>
+
+				<section>
+					<h2>flex-wrap</h2>
+					<p>
+						<img src="img/flex_wrap.png" alt="" style="background: #dfdfdf;">
 					</p>
 				</section>
 
@@ -432,6 +453,13 @@ flex-flow: <‘flex-direction’> || <‘flex-wrap’>
 				</section>
 
 				<section>
+					<h2>justify-content</h2>
+					<p>
+						<img src="img/justify-content.png" alt="" style="background: #dfdfdf;">
+					</p>
+				</section>
+
+				<section>
 					<h2>container: align-items</h2>
 <pre><code data-trim contenteditable>
 .container {
@@ -440,6 +468,13 @@ flex-flow: <‘flex-direction’> || <‘flex-wrap’>
 </code></pre>
 					<p>
 						This defines the default behaviour for how flex items are laid out along the cross axis on the current line.
+					</p>
+				</section>
+
+				<section>
+					<h2>align-items</h2>
+					<p>
+						<img src="img/align-items.png" alt="" style="background: #dfdfdf;">
 					</p>
 				</section>
 
@@ -456,7 +491,21 @@ flex-flow: <‘flex-direction’> || <‘flex-wrap’>
 				</section>
 
 				<section>
-					<h2>flex item: order</h2>
+					<h2>align-content</h2>
+					<p>
+						<img src="img/align-content.png" alt="" style="background: #dfdfdf;">
+					</p>
+				</section>
+
+				<section>
+					<h2>flex-items</h2>
+					<p>
+						<img src="img/flex_container.png" alt="" style="background: #dfdfdf;">
+					</p>
+				</section>
+
+				<section>
+					<h2>order</h2>
 <pre><code data-trim contenteditable>
 .item {
   order: integer;
@@ -468,7 +517,14 @@ flex-flow: <‘flex-direction’> || <‘flex-wrap’>
 				</section>
 
 				<section>
-					<h2>flex item: flex-grow</h2>
+					<h2>order</h2>
+					<p>
+						<img src="img/order.png" alt="" style="background: #dfdfdf;">
+					</p>
+				</section>
+
+				<section>
+					<h2>flex-grow</h2>
 <pre><code data-trim contenteditable>
 .item {
   flex-grow: number; /* default 0 */
@@ -480,7 +536,14 @@ flex-flow: <‘flex-direction’> || <‘flex-wrap’>
 				</section>
 
 				<section>
-					<h2>flex item: flex-grow</h2>
+					<h2>flew-grow</h2>
+					<p>
+						<img src="img/flex-grow.png" alt="" style="background: #dfdfdf;">
+					</p>
+				</section>
+
+				<section>
+					<h2>flex-shrink</h2>
 <pre><code data-trim contenteditable>
 .item {
   flex-shrink: number; /* default 1 */
@@ -492,7 +555,7 @@ flex-flow: <‘flex-direction’> || <‘flex-wrap’>
 				</section>
 
 				<section>
-					<h2>flex item: flex-basis</h2>
+					<h2>flex-basis</h2>
 <pre><code data-trim contenteditable>
 .item {
   flex-basis: length | auto; /* default auto */
@@ -504,7 +567,7 @@ flex-flow: <‘flex-direction’> || <‘flex-wrap’>
 				</section>
 
 				<section>
-					<h2>flex item: flex</h2>
+					<h2>flex</h2>
 <pre><code data-trim contenteditable>
 .item {
   flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
@@ -516,7 +579,7 @@ flex-flow: <‘flex-direction’> || <‘flex-wrap’>
 				</section>
 
 				<section>
-					<h2>flex item: align-self</h2>
+					<h2>align-self</h2>
 <pre><code data-trim contenteditable>
 .item {
   align-self: auto | flex-start | flex-end | center | baseline | stretch;
@@ -525,6 +588,62 @@ flex-flow: <‘flex-direction’> || <‘flex-wrap’>
 					<p>
 						This allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.
 					</p>
+				</section>
+
+				<section>
+					<h2>vendor prefixes</h2>
+					<pre><code data-trim contenteditable>
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.item {
+  flex: 0 1 auto;
+}
+					</code></pre>
+
+				</section>
+
+				<section>
+					<h2>vendor prefixes</h2>
+					<pre><code data-trim contenteditable>
+.container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.item {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+}
+					</code></pre>
+
+				</section>
+
+				<section>
+					<h2>WTF</h2>
+					<img src="http://cdn.meme.am/instances/500x/51253042.jpg" alt="">
+				</section>
+
+				<section>
+					<h2>Sass / Autoprefixer</h2>
+					<p>write a mixin</p>
+					<pre><code data-trim contenteditable>
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+					</code></pre>
+					<p>or use autoprefixer</p>
 				</section>
 
 				<section>
@@ -548,6 +667,8 @@ flex-flow: <‘flex-direction’> || <‘flex-wrap’>
 						<small class="img-copy"><a href="http://cdn.alltheragefaces.com/img/faces/large/surprised-reaction-guy-l.png" target="_blank">http://cdn.alltheragefaces.com/img/faces/large/surprised-reaction-guy-l.png</a></small>
 						<br>Slide 15:<br>
 						<small class="img-copy"><a href="http://cdn.meme.am/instances/500x/59141167.jpg" target="_blank">http://cdn.meme.am/instances/500x/59141167.jpg</a></small>
+						<br>Slide 52:<br>
+						<small class="img-copy"><a href="http://cdn.meme.am/instances/500x/51253042.jpg" target="_blank">http://cdn.meme.am/instances/500x/51253042.jpg</a></small>
 					</p>
 				</section>
 
