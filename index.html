@@ -91,6 +91,48 @@
 				</section>
 
 				<section>
+					<h2>Is this common to you?</h2>
+					<style>
+						.float-container {
+							font-size: 14px !important;
+							text-align: left !important;
+							float: left;
+							width: 100%;
+							background-color: #ffbebe;
+						}
+						.a, .b, .c {
+							width: 33.33333% !important;
+							float: left;
+							box-sizing: border-box;
+							color: #000 !important;
+						}
+						.a > h1, .b > h1, .c > h1 {color: #000 !important;}
+						.a {background-color: #aaa;}
+						.b {background-color: #bbb;}
+						.c {background-color: #ccc;}
+					</style>
+<pre><code data-trim contenteditable>
+.float-container {
+  float: left;
+  width: 100%;
+  background-color: #aaa;
+
+}
+.a, .b, .c {
+  width: 33.33333%;
+  float: left;
+  box-sizing: border-box;
+}
+</code></pre>
+<div class="float-container">
+	<div class="box a"><h1>A</h1><p>One sentence.</p></div>
+	<div class="box b"><h1>B</h1><p>A medium amount of text, but still nothing really interesting to read here. I promise.</p></div>
+	<div class="box c"><h1>C</h1><p>Yummy ipsum lorem kitten, bacon and mushroom. Rainbows rainbows pigeon wereunicorn app surprise, kittens pegasus delight unicorn wereunicorn rainbows. Pigeon unicorn surprise pony pigeon wereunicorn app app.</p></div>
+</div>
+
+				</section>
+
+				<section>
 					<h2>block & float</h2>
 					<p>
 						Most common layout mode today. Used in many frameworks and grid layouts, e.g. bootstrap
